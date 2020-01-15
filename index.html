@@ -1,0 +1,255 @@
+<html>
+
+<head>
+	<meta charset="utf8">
+	<script src="p5.js"></script>
+	<script src="class.js"></script>
+	<script src="script.js"></script>
+	<style>
+		body{
+			background: gold
+		}
+		#vanilapink {
+			background-color: #ffe4e1;
+		}
+
+		#purple {
+			background-color: #483d8b;
+		}
+
+		#crimson {
+			background-color: #dc143c;
+		}
+
+		#yellow {
+			background-color: #FFFF00;
+		}
+
+		#green {
+			background-color: #7cfc00;
+		}
+
+		#blue {
+			background-color: #1e90ff;
+		}
+
+		#black {
+			background-color: #000000;
+		}
+
+		/* div{
+            display:inline-block;
+        } */
+		table,
+		tr,
+		td {
+			border: 1px solid black;
+			border-collapse: collapse;
+			padding: 5px;
+		}
+
+		table {
+			margin-top: 20px;
+			margin-right: 20px;
+			background: white
+			/* float:right; */
+		}
+
+		#first {
+			background-color: #232323;
+			color: white;
+		}
+
+		.alice {
+			border-color: aliceblue;
+			height: 40px;
+			text-decoration: underline;
+		}
+
+		#sketch-holder {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.tb{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	</style>
+</head>
+
+
+<body>
+	<div class="tb">
+		<table>
+			<tr id="first">
+				<td class="alice"></td>
+				<td class="alice">Color</td>
+				<td class="alice">Basic Info</td>
+				<td class="alice">Energy</td>
+				<td class="alice">Multiply info</td>
+				<td class="alice">Energy Obtainment</td>
+				<td class="alice">Special Characteristic</td>
+			</tr>
+			<tr>
+				<td id="vanilapink"></td>
+				<td>
+					<p>Vanilapink</p>
+				</td>
+				<td>
+					<p>Just an empty space</p>
+				</td>
+				<td>
+					<p>-</p>
+				</td>
+				<td>No multiply</td>
+				<td>
+					<p>No energy</p>
+				</td>
+				<td>
+					<p>No special characteristics</p>
+				</td>
+			</tr>
+
+			<tr>
+				<td id="purple"></td>
+				<td>
+					<p>Purple</p>
+				</td>
+				<td>
+					<p>It's just a Grass</p>
+				</td>
+				<td>
+					<p>-</p>
+				</td>
+				<td>
+					<p>Multiplies after energy reaches 8+</p>
+				</td>
+				<td>
+					<p>No energy</p>
+				</td>
+				<td>
+					<p>Appears new Grass if it's less then 1<br>Can be eaten by Everything Eater<br>Walks on Empty space</p>
+				</td>
+			</tr>
+
+			<tr>
+				<td id="crimson"></td>
+				<td>
+					<p>Crimson</p>
+				</td>
+				<td>
+					<p>Vegan</p>
+				</td>
+				<td>
+					<p>20</p>
+				</td>
+				<td>
+					<p>Multiplies after energy reaches 20+</p>
+				</td>
+				<td>
+					<p>Eating Grass</p>
+				</td>
+				<td>
+					<p>Eats Grass or Killer of Vegan <br>Dies if it eats Killer of Vegan. Can be eaten by Everything Eater <br>Appears new Vegan if it's equalse or less then 20 and walks on Empty space </p>
+				</td>
+			</tr>
+
+			<tr>
+				<td id="green"></td>
+				<td>
+					<p>Green</p>
+				</td>
+				<td>
+					<p>Everything Eater</p>
+				</td>
+				<td>
+					<p>-</p>
+				</td>
+				<td>
+					<p>No multiply</p>
+				</td>
+				<td>
+					<p>No energy</p>
+				</td>
+				<td>
+					<p>It can eats everyone and nobody can eats it. It's immortal!!!<br>Walks on Empty space</p>
+				</td>
+			</tr>
+
+			<tr>
+				<td id="yellow"></td>
+				<td>
+					<p>Yellow</p>
+				</td>
+				<td>
+					<p>Wild Animal</p>
+				</td>
+				<td>
+					<p>10</p>
+				</td>
+				<td>
+					<p>Multiplies after energy reaches 8+</p>
+				</td>
+				<td>
+					<p>Eating Vegan</p>
+				</td>
+				<td>
+					<p>Appears new Wild Animal if it's equalse 0<br>Dies if Everything Eater eats it<br>Walks on Empty space and Grass</p>
+				</td>
+			</tr>
+
+			<tr>
+				<td id="blue"></td>
+				<td>
+					<p>Blue</p>
+				</td>
+				<td>
+					<p>Dog</p>
+				</td>
+				<td>
+					<p>8</p>
+				</td>
+				<td>
+					<p>No multiply</p>
+				</td>
+				<td>
+					<p>No energy</p>
+				</td>
+				<td>
+					<p>Walks on Empty space and Grass<br>Dies if Everything Eater eats it<br>Walks on Empty space and Grass</p>
+				</td>
+			</tr>
+
+			<tr>
+				<td id="black"></td>
+				<td>
+					<p>Black</p>
+				</td>
+				<td>
+					<p>Killer Of Vegan</p>
+				</td>
+				<td>
+					<p>-</p>
+				</td>
+				<td>
+					<p>No multiply</p>
+				</td>
+				<td>
+					<p>No energy</p>
+				</td>
+				<td>
+					<p>Appears new Killer Of Vegan if it's less then 1<br>Walks on Empty space and Grass<br>If vegan eats it, vegan dies:)</p>
+				</td>
+			</tr>
+
+
+		</table>
+	</div>
+	<br>
+
+	<div id="sketch-holder"></div>
+</body>
+
+</html>
