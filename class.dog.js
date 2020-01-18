@@ -1,4 +1,4 @@
-class Shun {
+class Shun extends Xot {
     constructor(x, y, index) {
         this.x = x;
         this.y = y;
@@ -22,17 +22,7 @@ class Shun {
 
     yntrelVandak(character) {
         this.stanalNorKordinatner();
-        var datarkutyun = [];
-        for (var i in this.directions) {
-            var x = this.directions[i][0];
-            var y = this.directions[i][1];
-            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-                if (matrix[y][x] == character) {
-                    datarkutyun.push(this.directions[i]);
-                }
-            }
-        }
-        return datarkutyun;
+        return super.yntrelVandak(character);
     }
 
     sharjvel() {

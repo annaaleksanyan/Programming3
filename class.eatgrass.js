@@ -1,10 +1,7 @@
-class Xotaker {
+class Xotaker extends Xot {
     constructor(x, y, index) {
-        this.x = x;
-        this.y = y;
+        super(x, y, index);
         this.energy = 20;
-        this.multiply = 0;
-        this.index = index;
         this.directions = [];
     }
 
@@ -23,18 +20,7 @@ class Xotaker {
 
     yntrelVandak(character) {
         this.stanalNorKordinatner();
-        var datarkutyun = [];
-        for (var i in this.directions) {
-            var x = this.directions[i][0];
-            var y = this.directions[i][1];
-            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-                if (matrix[y][x] == character) {
-                    datarkutyun.push(this.directions[i]);
-
-                }
-            }
-        }
-        return datarkutyun;
+        return super.yntrelVandak(character);
     }
 
     sharjvel() {
@@ -86,13 +72,10 @@ class Xotaker {
 
     bazmacum() {
         this.multiply += 1.5;
-        var newCell = random(this.yntrelVandak(0));
         if (newCell && this.multiply >= 20) {
-            var newX = newCell[0];
-            var newY = newCell[1];
             matrix[newY][newX] = 2;
             grassEaterArr.push(new Xotaker(newX, newY, 2));
-            this.multiply = 0;
+            return super.bazmacum();
         }
     }
 
