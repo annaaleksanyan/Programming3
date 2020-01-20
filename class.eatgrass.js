@@ -2,9 +2,7 @@ class Xotaker extends Xot {
     constructor(x, y, index) {
         super(x, y, index);
         this.energy = 20;
-        this.directions = [];
     }
-
     stanalNorKordinatner() {
         this.directions = [
             [this.x - 1, this.y - 1],
@@ -17,12 +15,10 @@ class Xotaker extends Xot {
             [this.x + 1, this.y + 1]
         ];
     }
-
     yntrelVandak(character) {
         this.stanalNorKordinatner();
         return super.yntrelVandak(character);
     }
-
     sharjvel() {
         var newCell = random(this.yntrelVandak(0));
         if (newCell) {
@@ -72,10 +68,13 @@ class Xotaker extends Xot {
 
     bazmacum() {
         this.multiply += 1.5;
+        var newCell = random(this.yntrelVandak(0));
         if (newCell && this.multiply >= 20) {
+            var newX = newCell[0];
+            var newY = newCell[1];
             matrix[newY][newX] = 2;
             grassEaterArr.push(new Xotaker(newX, newY, 2));
-            return super.bazmacum();
+            this.multiply = 0;
         }
     }
 

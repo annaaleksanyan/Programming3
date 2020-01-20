@@ -4,7 +4,6 @@ class Xot {
         this.y = y;
         this.index = index;
         this.multiply = 0;
-
         this.directions = [
             [this.x - 1, this.y - 1],
             [this.x, this.y - 1],
@@ -16,7 +15,6 @@ class Xot {
             [this.x + 1, this.y + 1]
         ];
     }
-
     yntrelVandak(character) {
         var datarkutyun = [];
         for (var i in this.directions) {
@@ -30,7 +28,6 @@ class Xot {
         }
         return datarkutyun;
     }
-
     bazmacum() {
         this.multiply += 1.8;
         var newCell = random(this.yntrelVandak(0));

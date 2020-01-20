@@ -1,13 +1,8 @@
-class Gishatich {
+class Gishatich extends Xot {
     constructor(x, y, index) {
-        this.x = x;
-        this.y = y;
+        super(x, y, index)
         this.energy = 10;
-        this.multiply = 0;
-        this.index = index;
-        this.directions = [];
     }
-
     stanalNorKordinatner() {
         this.directions = [
             [this.x - 1, this.y - 1],
@@ -20,22 +15,10 @@ class Gishatich {
             [this.x + 1, this.y + 1]
         ];
     }
-
     yntrelVandak(character) {
         this.stanalNorKordinatner();
-        var datarkutyun = [];
-        for (var i in this.directions) {
-            var x = this.directions[i][0];
-            var y = this.directions[i][1];
-            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-                if (matrix[y][x] == character) {
-                    datarkutyun.push(this.directions[i]);
-                }
-            }
-        }
-        return datarkutyun;
+        return super.yntrelVandak(character);
     }
-
     sharjvel() {
         var newCell = random(this.yntrelVandak(0)) || random(this.yntrelVandak(1));
         if (newCell) {
@@ -47,7 +30,6 @@ class Gishatich {
             this.y = y
         }
     }
-
     utel() {
         this.stanalNorKordinatner()
         var newCell = random(this.yntrelVandak(2));
@@ -77,7 +59,6 @@ class Gishatich {
             }
         }
     }
-
     bazmacum() {
         this.multiply += 2;
         var norvandak = random(this.yntrelVandak(0));
@@ -89,7 +70,6 @@ class Gishatich {
             this.multiply = 0;
         }
     }
-
     mernel() {
         for (var i in gishaticharr) {
             if (this.x == gishaticharr[i].x && this.y == gishaticharr[i].y) {
